@@ -55,10 +55,9 @@ def process_record(record_name, db_dir='mitdb', fs=360):
             if start_idx >= 0 and end_idx < len(filtered_ecg):
                 beat_segment = filtered_ecg[start_idx:end_idx]
 
-                # NEW CHECK: see if the R-peak is positive:
-                if beat_segment[90] > 0:
-                    X_record.append(beat_segment)
-                    y_record.append(sym)
+                
+                X_record.append(beat_segment)
+                y_record.append(sym)
                 
     return np.array(X_record), np.array(y_record)
 
